@@ -104,39 +104,30 @@ export default function Feed({ stories, loading, error }: FeedProps) {
 
     if (loading) {
         return (
-            <div className="h-screen flex items-center justify-center" data-oid="kv9u2x7">
-                <div className="text-gray-500" data-oid="10i0z10">
-                    Loading...
-                </div>
+            <div className="h-screen flex items-center justify-center">
+                <div className="text-gray-500">Loading...</div>
             </div>
         );
     }
 
     if (error) {
         return (
-            <div className="h-screen flex items-center justify-center" data-oid="ltj4lq9">
-                <div className="text-red-500" data-oid="i865t3r">
-                    {error}
-                </div>
+            <div className="h-screen flex items-center justify-center">
+                <div className="text-red-500">{error}</div>
             </div>
         );
     }
 
     if (!loading && !error && stories.length === 0) {
         return (
-            <div className="h-screen flex items-center justify-center" data-oid="3pf0eo8">
-                <div className="text-gray-500" data-oid="p4ji3xy">
-                    No stories found
-                </div>
+            <div className="h-screen flex items-center justify-center">
+                <div className="text-gray-500">No stories found</div>
             </div>
         );
     }
 
     return (
-        <div
-            className="snap-y snap-mandatory overflow-y-scroll overflow-x-hidden h-screen scroll-smooth touch-pan-y"
-            data-oid="4k87n28"
-        >
+        <div className="snap-y snap-mandatory overflow-y-scroll overflow-x-hidden h-screen scroll-smooth touch-pan-y">
             {stories.map((story, index) => (
                 <article
                     key={index}
@@ -144,17 +135,15 @@ export default function Feed({ stories, loading, error }: FeedProps) {
                     className={`relative h-screen snap-start snap-always group ${
                         currentIndex === index ? 'ring-2 ring-white ring-opacity-20' : ''
                     }`}
-                    data-oid="r-y002x"
                 >
                     <a
                         href={story.link}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block h-full"
-                        data-oid="f2u-ajc"
                     >
                         {/* Full height image with overlay */}
-                        <div className="absolute inset-0" data-oid="dm-hil_">
+                        <div className="absolute inset-0">
                             <Image
                                 src={story.image}
                                 alt={story.title}
@@ -165,45 +154,26 @@ export default function Feed({ stories, loading, error }: FeedProps) {
                                     const target = e.target as HTMLImageElement;
                                     target.src = DEFAULT_IMAGE;
                                 }}
-                                data-oid="89d74gw"
                             />
 
                             {/* Gradient overlay */}
-                            <div
-                                className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
-                                data-oid="::ai9n."
-                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
                             {/* Content overlay */}
-                            <div
-                                className="absolute bottom-0 left-0 right-0 p-8 text-white"
-                                data-oid="h6zk:.4"
-                            >
+                            <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
                                 {story.category && (
-                                    <div
-                                        className="text-sm text-gray-300 tracking-wider mb-2"
-                                        data-oid="kv0o:4g"
-                                    >
+                                    <div className="text-sm text-gray-300 tracking-wider mb-2">
                                         {getCategoryName(story.category)}
                                     </div>
                                 )}
-                                <h2
-                                    className="font-serif text-4xl font-bold mb-4 group-hover:underline"
-                                    data-oid="_b.fox6"
-                                >
+                                <h2 className="font-serif text-4xl font-bold mb-4 group-hover:underline">
                                     {story.title}
                                 </h2>
-                                <p
-                                    className="text-gray-200 text-lg mb-4 line-clamp-3"
-                                    data-oid="_kkm:ya"
-                                >
+                                <p className="text-gray-200 text-lg mb-4 line-clamp-3">
                                     {story.description}
                                 </p>
-                                <div
-                                    className="flex items-center text-gray-300 text-sm"
-                                    data-oid="si5ww5v"
-                                >
-                                    <time data-oid="zvw4he8">
+                                <div className="flex items-center text-gray-300 text-sm">
+                                    <time>
                                         {new Date(story.pubDate).toLocaleDateString('en-US', {
                                             month: 'short',
                                             day: 'numeric',
@@ -212,13 +182,8 @@ export default function Feed({ stories, loading, error }: FeedProps) {
                                     </time>
                                     {story.creator && (
                                         <>
-                                            <span className="mx-2" data-oid="wzls-4w">
-                                                ·
-                                            </span>
-                                            <span
-                                                className="truncate max-w-[200px]"
-                                                data-oid="oh2dxp:"
-                                            >
+                                            <span className="mx-2">·</span>
+                                            <span className="truncate max-w-[200px]">
                                                 {story.creator.split(',').slice(0, 2).join(',')}
                                                 {story.creator.split(',').length > 2
                                                     ? ' et al.'

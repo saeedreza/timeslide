@@ -49,14 +49,12 @@ export default function SideNav({
                             backdrop-blur-sm transition-all duration-200
                             ${isOpen ? 'top-4 right-4' : 'top-4 left-4'}
                         `}
-                        data-oid="t9pqtzk"
                     >
                         <svg
                             className="w-5 h-5 text-white"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
-                            data-oid="v7pj9l."
                         >
                             {isOpen ? (
                                 <path
@@ -64,7 +62,6 @@ export default function SideNav({
                                     strokeLinejoin="round"
                                     strokeWidth={2}
                                     d="M6 18L18 6M6 6l12 12"
-                                    data-oid="0f6jdfg"
                                 />
                             ) : (
                                 <path
@@ -72,7 +69,6 @@ export default function SideNav({
                                     strokeLinejoin="round"
                                     strokeWidth={2}
                                     d="M4 6h16M4 12h16M4 18h16"
-                                    data-oid="ng2pplm"
                                 />
                             )}
                         </svg>
@@ -87,7 +83,6 @@ export default function SideNav({
                         collapseAllSections={collapseAllSections}
                         isOpen={isOpen}
                         setIsOpen={setIsOpen}
-                        data-oid="73y.8z3"
                     />
                 </>
             ) : (
@@ -96,7 +91,6 @@ export default function SideNav({
                     setCurrentCategory={setCurrentCategory}
                     expandedSections={expandedSections}
                     toggleSection={toggleSection}
-                    data-oid="l2ywv8j"
                 />
             )}
         </>

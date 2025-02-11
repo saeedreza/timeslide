@@ -27,39 +27,26 @@ export default function DesktopSideNav({
     };
 
     return (
-        <nav
-            className="fixed top-0 left-0 w-[280px] h-screen bg-white border-r border-gray-100 z-40"
-            data-oid="fq.yq2:"
-        >
-            <div className="flex flex-col h-full p-5" data-oid="ce4h364">
+        <nav className="fixed top-0 left-0 w-[280px] h-screen bg-white border-r border-gray-100 z-40">
+            <div className="flex flex-col h-full p-5">
                 {/* Logo */}
-                <div className="mb-5" data-oid="5ccntej">
-                    <a
-                        href="https://www.nytimes.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        data-oid="h55fgou"
-                    >
-                        <picture data-oid="-ejs.7x">
-                            <source
-                                srcSet="/images/newyorktimes-logo.svg"
-                                type="image/svg+xml"
-                                data-oid=".vbkkfd"
-                            />
+                <div className="mb-5">
+                    <a href="https://www.nytimes.com" target="_blank" rel="noopener noreferrer">
+                        <picture>
+                            <source srcSet="/images/newyorktimes-logo.svg" type="image/svg+xml" />
 
                             <Image
                                 src="/images/The_New_York_Times_logo.png"
                                 alt="New York Times Logo"
                                 width={240}
                                 height={240}
-                                data-oid="kklxc3r"
                             />
                         </picture>
                     </a>
                 </div>
-                <div className="h-[1px] bg-gray-100 mb-4" data-oid="sg.w90n"></div>
+                <div className="h-[1px] bg-gray-100 mb-4"></div>
                 {/* Home Section */}
-                <div className="mb-1" data-oid="9ivijp.">
+                <div className="mb-1">
                     <button
                         onClick={() => {
                             setCurrentCategory('homepage');
@@ -69,14 +56,13 @@ export default function DesktopSideNav({
                                 ? 'bg-gray-100 text-black'
                                 : 'text-gray-600'
                         }`}
-                        data-oid="ks5:w6x"
                     >
                         HOME
                     </button>
                 </div>
-                <div className="h-[1px] bg-gray-100" data-oid="ebs30_s"></div>
+                <div className="h-[1px] bg-gray-100"></div>
                 {/* Most Viewed Section */}
-                <div className="mb-1" data-oid="xpy6fqs">
+                <div className="mb-1">
                     <button
                         onClick={() => {
                             setCurrentCategory('mostviewed');
@@ -86,28 +72,22 @@ export default function DesktopSideNav({
                                 ? 'bg-gray-100 text-black'
                                 : 'text-gray-600'
                         }`}
-                        data-oid=".x5bpw_"
                     >
                         POPULAR
                     </button>
                 </div>
                 {/* Divider */}
-                <div className="h-[1px] bg-gray-100 mb-4" data-oid="e8zf9o5"></div>
+                <div className="h-[1px] bg-gray-100 mb-4"></div>
 
                 {/* Scrollable Content for Categories */}
-                <div ref={scrollRef} className="flex-1 overflow-y-auto" data-oid="w2e.yi4">
-                    <div className="space-y-4" data-oid="vtopts3">
+                <div ref={scrollRef} className="flex-1 overflow-y-auto">
+                    <div className="space-y-4">
                         {Object.entries(CATEGORIES).map(([section, categories]) => (
-                            <div
-                                key={section}
-                                className="border-b border-gray-100 pb-2"
-                                data-oid="kmf8-m6"
-                            >
+                            <div key={section} className="border-b border-gray-100 pb-2">
                                 <button
                                     onClick={() => toggleSection(section, scrollRef.current)}
                                     aria-expanded={expandedSections[section] ? 'true' : 'false'}
                                     className="w-full px-3 flex items-center justify-between text-[13px] font-bold text-gray-900 uppercase tracking-wider hover:bg-gray-50 transition-colors"
-                                    data-oid="c.qqf5j"
                                 >
                                     {section}
                                     <svg
@@ -115,20 +95,17 @@ export default function DesktopSideNav({
                                         fill="none"
                                         stroke="currentColor"
                                         viewBox="0 0 24 24"
-                                        data-oid=":_6ffkc"
                                     >
                                         <path
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
                                             strokeWidth={2}
                                             d="M19 9l-7 7-7-7"
-                                            data-oid="wg:bhv-"
                                         />
                                     </svg>
                                 </button>
                                 <div
                                     className={`mt-1 space-y-1 overflow-hidden transition-all duration-200 ${expandedSections[section] ? 'max-h-[1200px]' : 'max-h-0'}`}
-                                    data-oid="s-k_bn4"
                                 >
                                     {categories.map((cat) => (
                                         <button
@@ -139,7 +116,6 @@ export default function DesktopSideNav({
                                                     ? 'bg-gray-100 text-black'
                                                     : 'text-gray-600'
                                             }`}
-                                            data-oid="lq1rvts"
                                         >
                                             {cat.name}
                                         </button>
@@ -150,8 +126,8 @@ export default function DesktopSideNav({
                     </div>
                 </div>
                 {/* Desktop Footer */}
-                <div className="hidden lg:block" data-oid="bw3r41o">
-                    <div className="h-[1px] bg-gray-100 mb-5" data-oid="tb-obxe"></div>
+                <div className="hidden lg:block">
+                    <div className="h-[1px] bg-gray-100 mb-5"></div>
                     <button
                         className="w-full py-2.5 text-white rounded-md font-small bg-black text-[12px] hover:bg-gray-900 transition-colors"
                         onClick={() =>
@@ -160,17 +136,15 @@ export default function DesktopSideNav({
                                 '_blank',
                             )
                         }
-                        data-oid="spd7g76"
                     >
                         SUBSCRIBE FOR $1
                     </button>
-                    <div className="mt-7 text-[13px] text-gray-500 space-y-3.5" data-oid="6r1q2wx">
+                    <div className="mt-7 text-[13px] text-gray-500 space-y-3.5">
                         <a
                             href="https://www.nytimes.com/account"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="block hover:text-gray-800 transition-colors"
-                            data-oid="qqqej:i"
                         >
                             My Account
                         </a>
@@ -179,7 +153,6 @@ export default function DesktopSideNav({
                             target="_blank"
                             rel="noopener noreferrer"
                             className="block hover:text-gray-800 transition-colors"
-                            data-oid="adh7iy8"
                         >
                             Help
                         </a>
@@ -188,7 +161,6 @@ export default function DesktopSideNav({
                             target="_blank"
                             rel="noopener noreferrer"
                             className="block hover:text-gray-800 transition-colors"
-                            data-oid="mo.dhfk"
                         >
                             Privacy Policy
                         </a>
@@ -197,7 +169,6 @@ export default function DesktopSideNav({
                             target="_blank"
                             rel="noopener noreferrer"
                             className="block hover:text-gray-800 transition-colors"
-                            data-oid=":37gepi"
                         >
                             Terms of Service
                         </a>
@@ -206,7 +177,6 @@ export default function DesktopSideNav({
                             target="_blank"
                             rel="noopener noreferrer"
                             className="block hover:text-gray-800 transition-colors"
-                            data-oid=":ze5f0n"
                         >
                             ©2025 New York Times
                         </a>
