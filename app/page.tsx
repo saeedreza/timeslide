@@ -3,8 +3,6 @@
 import { useState, useEffect } from 'react';
 import SideNav from './components/SideNav';
 import Feed from './components/Feed';
-import { CATEGORIES, RSS_FEEDS, DEFAULT_IMAGE } from './constants';
-import Parser from 'rss-parser';
 
 // Define the Story interface (if not moved to a shared types file)
 export interface Story {
@@ -16,30 +14,18 @@ export interface Story {
     category: string;
 }
 
-// Add this function to fetch data at build time
-async function fetchStoriesData(category: string) {
-    // Check if category exists in RSS_FEEDS
-    if (!RSS_FEEDS[category as keyof typeof RSS_FEEDS]) {
-        return [];
+async function fetchStories(category: string) {
+    try {
+        const response = await fetch(`/api/stories?category=${category}`);
+        if (!response.ok) {
+            throw new Error(`Status code ${response.status}`);
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching stories:', error);
+        throw error;
     }
-
-    const parser = new Parser({
-        customFields: {
-            item: ['media:content'],
-        },
-    });
-
-    const feed = await parser.parseURL(RSS_FEEDS[category as keyof typeof RSS_FEEDS]);
-    const items = Array.isArray(feed.items) ? feed.items : [];
-
-    return items.map((item) => ({
-        title: item.title || '',
-        description: item.contentSnippet || '',
-        pubDate: item.pubDate || new Date().toISOString(),
-        link: item.link || '',
-        image: item['media:content']?.['$']?.url || DEFAULT_IMAGE,
-        category,
-    }));
 }
 
 export default function Page() {
@@ -56,12 +42,11 @@ export default function Page() {
     });
 
     useEffect(() => {
-        async function fetchStories() {
+        async function loadStories() {
             setLoading(true);
             setError(null);
             try {
-                // Instead of fetching from API, fetch directly from RSS
-                const data = await fetchStoriesData(currentCategory);
+                const data = await fetchStories(currentCategory);
                 setStories(data);
             } catch (error) {
                 console.error('Error fetching stories:', error);
@@ -72,7 +57,7 @@ export default function Page() {
             }
         }
 
-        fetchStories();
+        loadStories();
     }, [currentCategory]);
 
     const toggleSection = (section: string, scrollRef: HTMLDivElement | null) => {
@@ -100,18 +85,22 @@ export default function Page() {
     };
 
     return (
-        <div className="min-h-screen bg-white lg:ml-[240px]">
+        <div className="min-h-screen bg-white lg:ml-[240px]" data-oid=":gop0-e">
             <SideNav
                 currentCategory={currentCategory}
                 setCurrentCategory={setCurrentCategory}
                 expandedSections={expandedSections}
                 toggleSection={toggleSection}
                 setExpandedSections={setExpandedSections}
+                data-oid="3fxjwkc"
             />
 
-            <main>
-                <div className="max-w-[480px] mx-auto h-screen overflow-y-scroll snap-y snap-mandatory">
-                    <Feed stories={stories} loading={loading} error={error} />
+            <main data-oid=".hps7qz">
+                <div
+                    className="max-w-[480px] mx-auto h-screen overflow-y-scroll snap-y snap-mandatory"
+                    data-oid="fklotbq"
+                >
+                    <Feed stories={stories} loading={loading} error={error} data-oid="5vxehwm" />
                 </div>
             </main>
         </div>

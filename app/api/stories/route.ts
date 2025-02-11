@@ -14,7 +14,8 @@ export async function GET(request: Request) {
         const { searchParams } = new URL(request.url);
         const category = searchParams.get('category')?.toLowerCase() || 'homepage';
 
-        if (!RSS_FEEDS[category as keyof typeof RSS_FEEDS]) {
+        const feedUrl = RSS_FEEDS[category as keyof typeof RSS_FEEDS];
+        if (!feedUrl) {
             return NextResponse.json(
                 { error: 'Invalid category' },
                 { status: 400 }
@@ -27,7 +28,7 @@ export async function GET(request: Request) {
             },
         });
 
-        const feed = await parser.parseURL(RSS_FEEDS[category as keyof typeof RSS_FEEDS]);
+        const feed = await parser.parseURL(feedUrl);
 
         // Ensure feed.items is an array
         const items = Array.isArray(feed.items) ? feed.items : [];

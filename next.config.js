@@ -5,10 +5,18 @@ const nextConfig = {
     // Add the hostname here 
     unoptimized: true // Required for static export
   },
-  output: 'export',
+  output: "standalone",
   distDir: process.env.NODE_ENV === "production" ? ".next-prod" : ".next",
   typescript: {
     ignoreBuildErrors: true
+  },
+  async rewrites() {
+    return {
+      beforeFiles: [{
+        source: '/api/stories',
+        destination: '/api/stories'
+      }]
+    };
   }
 };
 module.exports = nextConfig;

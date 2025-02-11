@@ -5,14 +5,19 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-    title: 'NY Times Clone',
-    description: 'Created by Saeedreza Abbaspour',
+    title: 'NYTikTok',
+    description: 'Created by Saeedreza',
+    icons: {
+        icon: '/images/NewYorkTimes-Logo-Icon.svg',
+    },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
-        <html lang="en">
-            <body className={inter.className}>{children}</body>
+        <html lang="en" data-oid="wfw22dq">
+            <body className={inter.className} data-oid="4ug9bit">
+                {children}
+            </body>
         </html>
     );
 }
