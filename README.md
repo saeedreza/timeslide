@@ -1,18 +1,13 @@
 # Timeslide
 
-<p align="center">
-  <img src="app/favicon.ico" />
-</p>
+NY Times RSS reader meets TikTok.
 
 Timeslide reimagines how we consume news by combining the New York Times' journalistic excellence with TikTok's engaging vertical scroll format. Built with [Next.js](https://nextjs.org/), [TailwindCSS](https://tailwindcss.com/) and [ShadCN](https://ui.shadcn.com).
 
 ## Features
 
 - 📰 Vertical scrolling news feed
-- 🎥 Full-screen article view with immersive media
 - 👆 Swipe navigation between articles
-- 💬 Interactive comments section
-- 🔖 Save articles for later
 - 🌗 Dark mode support
 - 📱 Mobile-first design
 - 🔍 Category-based navigation
@@ -41,4 +36,4 @@ The app categorizes news into different sections (World, Politics, Technology, e
 
 ## Development
 
-This project was developed with the assistance of AI tools including Onlook and Cursor, powered by Claude and GPT-4 models.
+This project was developed using AI tools, including [Onlook](https://onlook.com/) and [Cursor](https://cursor.com/), powered by the Claude and GPT-4 models.
