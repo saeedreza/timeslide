@@ -85,22 +85,22 @@ export default function Page() {
     };
 
     return (
-        <div className="min-h-screen bg-white lg:ml-[240px]" data-oid=":gop0-e">
+        <div className="min-h-screen bg-white lg:ml-[240px]" data-oid="s14x8rq">
             <SideNav
                 currentCategory={currentCategory}
                 setCurrentCategory={setCurrentCategory}
                 expandedSections={expandedSections}
                 toggleSection={toggleSection}
                 setExpandedSections={setExpandedSections}
-                data-oid="3fxjwkc"
+                data-oid="2t:xc5-"
             />
 
-            <main data-oid=".hps7qz">
+            <main data-oid="va480jt">
                 <div
                     className="max-w-[480px] mx-auto h-screen overflow-y-scroll snap-y snap-mandatory"
-                    data-oid="fklotbq"
+                    data-oid="iycevs_"
                 >
-                    <Feed stories={stories} loading={loading} error={error} data-oid="5vxehwm" />
+                    <Feed stories={stories} loading={loading} error={error} data-oid="46524-h" />
                 </div>
             </main>
         </div>

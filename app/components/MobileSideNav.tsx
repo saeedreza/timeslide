@@ -46,36 +46,37 @@ export default function MobileSideNav({
         transform transition-transform duration-300 ease-in-out
         ${isOpen ? 'translate-x-0' : '-translate-x-full'}
       `}
-            data-oid="6qz:ye4"
+            data-oid="cwkj2av"
         >
-            <div className="flex flex-col h-full p-5" data-oid="v66oe4s">
+            <div className="flex flex-col h-full p-5" data-oid="2_6z07g">
                 {/* Logo */}
-                <div className="mb-5" data-oid=":3vs8xm">
+                <div className="mb-5" data-oid="km3vq23">
                     <a
                         href="https://www.nytimes.com"
                         target="_blank"
                         rel="noopener noreferrer"
-                        data-oid="8v8dg1y"
+                        data-oid="9a06c_x"
                     >
-                        <picture data-oid="ja514yx">
+                        <picture data-oid="wg0bpcy">
                             <source
                                 srcSet="/images/newyorktimes-logo.svg"
                                 type="image/svg+xml"
-                                data-oid="uxyc13e"
+                                data-oid="3iz5:7r"
                             />
+
                             <Image
                                 src="/images/The_New_York_Times_logo.png"
                                 alt="New York Times Logo"
                                 width={240}
                                 height={240}
-                                data-oid="ntp2doz"
+                                data-oid=".m2hj8f"
                             />
                         </picture>
                     </a>
                 </div>
-                <div className="h-[1px] bg-gray-100 mb-4" data-oid="7vy174s"></div>
+                <div className="h-[1px] bg-gray-100 mb-4" data-oid="c43gwxg"></div>
                 {/* Home Section */}
-                <div className="mb-1" data-oid="77sh9p8">
+                <div className="mb-1" data-oid="tl4nhg8">
                     <button
                         onClick={() => {
                             setCurrentCategory('homepage');
@@ -87,14 +88,14 @@ export default function MobileSideNav({
                                 ? 'bg-gray-100 text-black'
                                 : 'text-gray-600'
                         }`}
-                        data-oid="xlsumfu"
+                        data-oid="u_onqau"
                     >
                         HOME
                     </button>
                 </div>
-                <div className="h-[1px] bg-gray-100" data-oid="l1gpq44"></div>
+                <div className="h-[1px] bg-gray-100" data-oid="1aioxtf"></div>
                 {/* Most Viewed Section */}
-                <div className="mb-1" data-oid="t2-i-5i">
+                <div className="mb-1" data-oid="u2tuz3m">
                     <button
                         onClick={() => {
                             setCurrentCategory('mostviewed');
@@ -106,28 +107,28 @@ export default function MobileSideNav({
                                 ? 'bg-gray-100 text-black'
                                 : 'text-gray-600'
                         }`}
-                        data-oid=".rts9:1"
+                        data-oid=".a0ocsn"
                     >
                         POPULAR
                     </button>
                 </div>
                 {/* Divider */}
-                <div className="h-[1px] bg-gray-100 mb-4" data-oid="1edv.mf"></div>
+                <div className="h-[1px] bg-gray-100 mb-4" data-oid="ld72znk"></div>
 
                 {/* Scrollable Content for Categories */}
-                <div ref={scrollRef} className="flex-1 overflow-y-auto" data-oid="b_8nq55">
-                    <div className="space-y-4" data-oid="akw47iu">
+                <div ref={scrollRef} className="flex-1 overflow-y-auto" data-oid="ga89q7s">
+                    <div className="space-y-4" data-oid="tqpw0s5">
                         {Object.entries(CATEGORIES).map(([section, categories]) => (
                             <div
                                 key={section}
                                 className="border-b border-gray-100 pb-2"
-                                data-oid="aprb3gf"
+                                data-oid="nzzastq"
                             >
                                 <button
                                     onClick={() => toggleSection(section, scrollRef.current)}
                                     aria-expanded={expandedSections[section] ? 'true' : 'false'}
                                     className="w-full px-3 flex items-center justify-between text-[13px] font-bold text-gray-900 uppercase tracking-wider hover:bg-gray-50 transition-colors"
-                                    data-oid="51636sh"
+                                    data-oid="m10mbon"
                                 >
                                     {section}
                                     <svg
@@ -137,14 +138,14 @@ export default function MobileSideNav({
                                         fill="none"
                                         stroke="currentColor"
                                         viewBox="0 0 24 24"
-                                        data-oid="vl2vi-u"
+                                        data-oid="mman5._"
                                     >
                                         <path
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
                                             strokeWidth={2}
                                             d="M19 9l-7 7-7-7"
-                                            data-oid="496x476"
+                                            data-oid="10go.1r"
                                         />
                                     </svg>
                                 </button>
@@ -152,7 +153,7 @@ export default function MobileSideNav({
                                     className={`mt-1 space-y-1 overflow-hidden transition-all duration-200 ${
                                         expandedSections[section] ? 'max-h-[1200px]' : 'max-h-0'
                                     }`}
-                                    data-oid="gt_4aiw"
+                                    data-oid="6:dyaam"
                                 >
                                     {categories.map((cat) => (
                                         <button
@@ -163,7 +164,7 @@ export default function MobileSideNav({
                                                     ? 'bg-gray-100 text-black'
                                                     : 'text-gray-600'
                                             }`}
-                                            data-oid="t2dhzxu"
+                                            data-oid=":.czi2e"
                                         >
                                             {cat.name}
                                         </button>
@@ -174,8 +175,8 @@ export default function MobileSideNav({
                     </div>
                 </div>
                 {/* Footer Section */}
-                <div className="relative" data-oid="om62my1">
-                    <div className="pt-5 px-5" data-oid="ncgidfi">
+                <div className="relative" data-oid="9id7jx6">
+                    <div className="pt-5 px-5" data-oid="b4nu7hg">
                         <button
                             className="w-full py-2.5 text-white rounded-md font-small bg-black text-[12px] hover:bg-gray-900 transition-colors"
                             onClick={() =>
@@ -184,7 +185,7 @@ export default function MobileSideNav({
                                     '_blank',
                                 )
                             }
-                            data-oid="u7fgk_s"
+                            data-oid="ej97y25"
                         >
                             SUBSCRIBE FOR $1
                         </button>
@@ -194,7 +195,7 @@ export default function MobileSideNav({
                         onClick={() => setIsFooterOpen(!isFooterOpen)}
                         aria-expanded={isFooterOpen ? 'true' : 'false'}
                         className="w-full text-center text-[11px] text-gray-500 hover:text-gray-800 py-2 transition-colors flex items-center justify-center gap-1"
-                        data-oid="et1z14q"
+                        data-oid="_fpmtel"
                     >
                         MORE
                         <svg
@@ -202,14 +203,14 @@ export default function MobileSideNav({
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
-                            data-oid="1oo4-lt"
+                            data-oid="o241bsx"
                         >
                             <path
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
                                 strokeWidth={2}
                                 d="M19 9l-7 7-7-7"
-                                data-oid="8c7x.ra"
+                                data-oid="hku-j.2"
                             />
                         </svg>
                     </button>
@@ -222,41 +223,41 @@ export default function MobileSideNav({
               shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1),0_-2px_4px_-2px_rgba(0,0,0,0.05)]
               ${isFooterOpen ? 'translate-y-0' : 'translate-y-full'}
             `}
-                        data-oid="_x7fuu."
+                        data-oid="c-.wax:"
                     >
-                        <div className="relative p-5" data-oid="_t9aiea">
+                        <div className="relative p-5" data-oid="jqzdg7r">
                             <button
                                 onClick={() => setIsFooterOpen(false)}
                                 className="absolute top-3 right-3 p-1 text-gray-400 hover:text-gray-600 transition-colors"
-                                data-oid="rl9shx4"
+                                data-oid="mz826w-"
                             >
                                 <svg
                                     className="w-4 h-4"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24"
-                                    data-oid="xevcmxn"
+                                    data-oid="jz_hwoj"
                                 >
                                     <path
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                         strokeWidth={2}
                                         d="M6 18L18 6M6 6l12 12"
-                                        data-oid="fdljz87"
+                                        data-oid="cqrsgdy"
                                     />
                                 </svg>
                             </button>
 
                             <div
                                 className="mt-2 text-[13px] text-gray-500 space-y-3.5"
-                                data-oid="f_hc:yo"
+                                data-oid="7j1zm2b"
                             >
                                 <a
                                     href="https://www.nytimes.com/account"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="block hover:text-gray-800 transition-colors"
-                                    data-oid="h70thok"
+                                    data-oid="sb44p67"
                                 >
                                     My Account
                                 </a>
@@ -265,7 +266,7 @@ export default function MobileSideNav({
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="block hover:text-gray-800 transition-colors"
-                                    data-oid="b.47az_"
+                                    data-oid="nh141sx"
                                 >
                                     Help
                                 </a>
@@ -274,7 +275,7 @@ export default function MobileSideNav({
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="block hover:text-gray-800 transition-colors"
-                                    data-oid="2wj9jax"
+                                    data-oid="8kynqu0"
                                 >
                                     Privacy Policy
                                 </a>
@@ -283,7 +284,7 @@ export default function MobileSideNav({
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="block hover:text-gray-800 transition-colors"
-                                    data-oid="1:1hl1-"
+                                    data-oid="-yyw9m4"
                                 >
                                     Terms of Service
                                 </a>
@@ -292,7 +293,7 @@ export default function MobileSideNav({
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="block hover:text-gray-800 transition-colors"
-                                    data-oid="xyk:wk_"
+                                    data-oid="m9v_2rj"
                                 >
                                     ©2025 New York Times
                                 </a>
