@@ -52,7 +52,7 @@ export default function MobileSideNav({
                 <div className="mb-5">
                     <a href="https://www.nytimes.com" target="_blank" rel="noopener noreferrer">
                         <Image
-                            src="/images/NewYorkTimes-Logo-Icon.svg"
+                            src="/images/NewYorkTimes-Logo.svg"
                             alt="New York Times Logo"
                             width={240}
                             height={40}
