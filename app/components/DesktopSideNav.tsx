@@ -32,16 +32,13 @@ export default function DesktopSideNav({
                 {/* Logo */}
                 <div className="mb-5">
                     <a href="https://www.nytimes.com" target="_blank" rel="noopener noreferrer">
-                        <picture>
-                            <source srcSet="/images/newyorktimes-logo.svg" type="image/svg+xml" />
-
-                            <Image
-                                src="/images/The_New_York_Times_logo.png"
-                                alt="New York Times Logo"
-                                width={240}
-                                height={240}
-                            />
-                        </picture>
+                        <Image
+                            src="/images/NewYorkTimes-Logo-Icon.svg"
+                            alt="New York Times Logo"
+                            width={240}
+                            height={40}
+                            priority
+                        />
                     </a>
                 </div>
                 <div className="h-[1px] bg-gray-100 mb-4"></div>
