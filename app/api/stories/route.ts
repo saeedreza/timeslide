@@ -35,11 +35,13 @@ function validateCategory(category: string): asserts category is CategoryKeys {
     }
 }
 
+// Add this export to explicitly mark the route as dynamic
 export const dynamic = 'force-dynamic';
 
 export async function GET(request: Request) {
     try {
-        const searchParams = new URL(request.url).searchParams;
+        // Use the URL pattern API which is supported for dynamic routes
+        const { searchParams } = new URL(request.url);
         const category = searchParams.get('category')?.toLowerCase() || 'homepage';
         
         validateCategory(category);
