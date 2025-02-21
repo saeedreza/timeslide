@@ -3,16 +3,7 @@
 import { useState, useEffect } from 'react';
 import SideNav from './components/SideNav';
 import Feed from './components/Feed';
-
-// Define the Story interface (if not moved to a shared types file)
-export interface Story {
-    title: string;
-    description: string;
-    pubDate: string;
-    link: string;
-    image: string;
-    category: string;
-}
+import { Story } from './types';
 
 async function fetchStories(category: string) {
     try {
@@ -40,11 +31,13 @@ export default function Page() {
         Other: false,
         Opinion: false,
     });
+    const [loadingStates, setLoadingStates] = useState<{ [key: string]: boolean }>({});
 
     useEffect(() => {
         async function loadStories() {
-            setLoading(true);
+            setLoadingStates(prev => ({ ...prev, [currentCategory]: true }));
             setError(null);
+            
             try {
                 const data = await fetchStories(currentCategory);
                 setStories(data);
@@ -53,7 +46,7 @@ export default function Page() {
                 setError(error instanceof Error ? error.message : 'Failed to fetch stories');
                 setStories([]);
             } finally {
-                setLoading(false);
+                setLoadingStates(prev => ({ ...prev, [currentCategory]: false }));
             }
         }
 
@@ -85,18 +78,22 @@ export default function Page() {
     };
 
     return (
-        <div className="min-h-screen bg-white lg:ml-[240px]">
-            <SideNav
-                currentCategory={currentCategory}
-                setCurrentCategory={setCurrentCategory}
-                expandedSections={expandedSections}
-                toggleSection={toggleSection}
-                setExpandedSections={setExpandedSections}
-            />
+        <div className="relative flex w-full">
+            {/* SideNav - fixed width on desktop, overlay on mobile */}
+            <div>
+                <SideNav
+                    currentCategory={currentCategory}
+                    setCurrentCategory={setCurrentCategory}
+                    expandedSections={expandedSections}
+                    toggleSection={toggleSection}
+                    setExpandedSections={setExpandedSections}
+                />
+            </div>
 
-            <main>
-                <div className="max-w-[480px] mx-auto h-screen overflow-y-scroll snap-y snap-mandatory">
-                    <Feed stories={stories} loading={loading} error={error} />
+            {/* Main content - takes remaining width */}
+            <main className="flex-1 w-full m-auto">
+                <div className="max-w-[720px] mx-auto h-screen overflow-y-scroll snap-y snap-mandatory">
+                    <Feed stories={stories} loading={loadingStates[currentCategory]} error={error} />
                 </div>
             </main>
         </div>

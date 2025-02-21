@@ -3,23 +3,22 @@
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 import { DEFAULT_IMAGE, CATEGORIES } from '../constants';
-
-// Define the Story interface (can also be moved to a shared types file)
-export interface Story {
-    title: string;
-    description: string;
-    pubDate: string;
-    link: string;
-    image: string;
-    category?: string;
-    creator?: string;
-}
+import { Story } from '../types';
 
 interface FeedProps {
     stories: Story[];
     loading: boolean;
     error: string | null;
 }
+
+// Add debounce utility
+const debounce = (func: Function, wait: number) => {
+    let timeout: NodeJS.Timeout;
+    return (...args: any[]) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func(...args), wait);
+    };
+};
 
 export default function Feed({ stories, loading, error }: FeedProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -31,6 +30,22 @@ export default function Feed({ stories, loading, error }: FeedProps) {
     useEffect(() => {
         currentIndexRef.current = currentIndex;
     }, [currentIndex]);
+
+    // In the Feed component, update the viewport height handler
+    useEffect(() => {
+        const updateViewportHeight = debounce(() => {
+            document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+        }, 100);
+
+        updateViewportHeight();
+        window.addEventListener('resize', updateViewportHeight);
+        window.addEventListener('orientationchange', updateViewportHeight);
+
+        return () => {
+            window.removeEventListener('resize', updateViewportHeight);
+            window.removeEventListener('orientationchange', updateViewportHeight);
+        };
+    }, []);
 
     // Register the key event listener only once
     useEffect(() => {
@@ -127,12 +142,12 @@ export default function Feed({ stories, loading, error }: FeedProps) {
     }
 
     return (
-        <div className="snap-y snap-mandatory overflow-y-scroll overflow-x-hidden h-screen scroll-smooth touch-pan-y">
+        <div className="snap-y snap-mandatory overflow-y-scroll overflow-x-hidden h-[calc(var(--vh,1vh)*100)] scroll-smooth touch-pan-y w-full">
             {stories.map((story, index) => (
                 <article
                     key={index}
                     id={`story-${index}`}
-                    className={`relative h-screen snap-start snap-always group ${
+                    className={`relative h-[calc(var(--vh,1vh)*100)] w-full snap-start snap-always group ${
                         currentIndex === index ? 'ring-2 ring-white ring-opacity-20' : ''
                     }`}
                 >
@@ -160,7 +175,7 @@ export default function Feed({ stories, loading, error }: FeedProps) {
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
                             {/* Content overlay */}
-                            <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                            <div className="absolute bottom-10 left-0 right-0 p-8 text-white">
                                 {story.category && (
                                     <div className="text-sm text-gray-300 tracking-wider mb-2">
                                         {getCategoryName(story.category)}
